@@ -49,8 +49,7 @@ node --test test/*.test.js
 
 CI (`.github/workflows/ci.yml`) runs the tests on windows-latest, runs the collector there, and diffs its output against the sample baseline to make sure the whole pipeline works.
 
-## Known gaps
-
+## Limits
 - Not covered: Startup/approved-run state (`StartupApproved`), IFEO debuggers, AppInit_DLLs, Winlogon notify, WMI event subscriptions, COM hijacks, browser extensions, drivers, and other users' HKCU hives.
 - The target is guessed from the command line with a regex. Odd quoting or `cmd /c` wrappers can give the wrong executable, and for those the "missing" and "unsigned" hints are about the wrong file.
 - Only the first executable is checked. Whatever a script or DLL loads afterwards is not.

@@ -1,0 +1,12 @@
+{
+  "name": "autorun-diff",
+  "version": "0.1.0",
+  "description": "Diff two Windows persistence snapshots",
+  "license": "MIT",
+  "private": true,
+  "bin": { "autorun-diff": "bin/autorun-diff.js" },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "engines": { "node": ">=20" }
+}

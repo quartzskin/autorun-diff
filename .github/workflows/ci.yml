@@ -1,0 +1,29 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Unit tests
+        run: node --test test/*.test.js
+      - name: Run collector (Windows PowerShell 5.1)
+        shell: powershell
+        run: |
+          .\collector\Collect-Autoruns.ps1 -OutFile snapshot.json
+          if (-not (Test-Path snapshot.json)) { throw 'no snapshot written' }
+      - name: Diff the snapshot against the sample baseline
+        run: node bin/autorun-diff.js samples/baseline.json snapshot.json --html report.html
+      - uses: actions/upload-artifact@v4
+        with:
+          name: report
+          path: |
+            snapshot.json
+            report.html

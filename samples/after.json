@@ -1,0 +1,196 @@
+{
+  "version": 1,
+  "host": "LAB-VM01",
+  "collected": "2025-03-09T18:41:52Z",
+  "warnings": [],
+  "entries": [
+    {
+      "type": "run",
+      "key": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\SecurityHealth",
+      "name": "SecurityHealth",
+      "command": "%windir%\\system32\\SecurityHealthSystray.exe",
+      "target": "C:\\WINDOWS\\system32\\SecurityHealthSystray.exe",
+      "exists": true,
+      "signature": "Valid",
+      "extra": {}
+    },
+    {
+      "type": "run",
+      "key": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\VBoxTray",
+      "name": "VBoxTray",
+      "command": "C:\\Windows\\system32\\VBoxTray.exe",
+      "target": "C:\\Windows\\system32\\VBoxTray.exe",
+      "exists": true,
+      "signature": "Valid",
+      "extra": {}
+    },
+    {
+      "type": "run",
+      "key": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\OneDrive",
+      "name": "OneDrive",
+      "command": "\"C:\\Users\\labuser\\AppData\\Local\\Microsoft\\OneDrive\\OneDrive.exe\" /background",
+      "target": "C:\\Users\\labuser\\AppData\\Local\\Microsoft\\OneDrive\\OneDrive.exe",
+      "exists": true,
+      "signature": "Valid",
+      "extra": {}
+    },
+    {
+      "type": "winlogon",
+      "key": "Winlogon\\Shell",
+      "name": "Shell",
+      "command": "explorer.exe",
+      "target": "explorer.exe",
+      "exists": null,
+      "signature": null,
+      "extra": {}
+    },
+    {
+      "type": "winlogon",
+      "key": "Winlogon\\Userinit",
+      "name": "Userinit",
+      "command": "C:\\Windows\\system32\\userinit.exe,",
+      "target": "C:\\Windows\\system32\\userinit.exe",
+      "exists": true,
+      "signature": "Valid",
+      "extra": {}
+    },
+    {
+      "type": "startup",
+      "key": "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp\\notes.lnk",
+      "name": "notes.lnk",
+      "command": "\"C:\\Windows\\System32\\notepad.exe\"",
+      "target": "C:\\Windows\\System32\\notepad.exe",
+      "exists": true,
+      "signature": "Valid",
+      "extra": {
+        "scope": "common"
+      }
+    },
+    {
+      "type": "task",
+      "key": "\\Microsoft\\Windows\\Defrag\\ScheduledDefrag#0",
+      "name": "ScheduledDefrag",
+      "command": "\"C:\\WINDOWS\\system32\\defrag.exe\" -c -h -o -$",
+      "target": "C:\\WINDOWS\\system32\\defrag.exe",
+      "exists": true,
+      "signature": "Valid",
+      "extra": {
+        "state": "Ready",
+        "runAs": "SYSTEM",
+        "runLevel": "Highest"
+      }
+    },
+    {
+      "type": "task",
+      "key": "\\ContosoSync#0",
+      "name": "ContosoSync",
+      "command": "\"C:\\Program Files\\Contoso\\sync.exe\" --hourly",
+      "target": "C:\\Program Files\\Contoso\\sync.exe",
+      "exists": true,
+      "signature": "Valid",
+      "extra": {
+        "state": "Disabled",
+        "runAs": "SYSTEM",
+        "runLevel": "Highest"
+      }
+    },
+    {
+      "type": "service",
+      "key": "Spooler",
+      "name": "Spooler",
+      "command": "C:\\Windows\\System32\\spoolsv.exe",
+      "target": "C:\\Windows\\System32\\spoolsv.exe",
+      "exists": true,
+      "signature": "Valid",
+      "extra": {
+        "start": "auto",
+        "account": "LocalSystem"
+      }
+    },
+    {
+      "type": "service",
+      "key": "ContosoAgent",
+      "name": "ContosoAgent",
+      "command": "\"C:\\ProgramData\\Contoso\\agent.exe\" -service",
+      "target": "C:\\ProgramData\\Contoso\\agent.exe",
+      "exists": true,
+      "signature": "NotSigned",
+      "extra": {
+        "start": "auto",
+        "account": "LocalSystem"
+      }
+    },
+    {
+      "type": "service",
+      "key": "VBoxService",
+      "name": "VBoxService",
+      "command": "C:\\Windows\\System32\\VBoxService.exe",
+      "target": "C:\\Windows\\System32\\VBoxService.exe",
+      "exists": true,
+      "signature": "Valid",
+      "extra": {
+        "start": "auto",
+        "account": "LocalSystem"
+      }
+    },
+    {
+      "type": "run",
+      "key": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\WinSvcHelper",
+      "name": "WinSvcHelper",
+      "command": "\"C:\\Users\\labuser\\AppData\\Roaming\\WinSvc\\helper.exe\"",
+      "target": "C:\\Users\\labuser\\AppData\\Roaming\\WinSvc\\helper.exe",
+      "exists": true,
+      "signature": "NotSigned",
+      "extra": {}
+    },
+    {
+      "type": "run",
+      "key": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\Updater2",
+      "name": "Updater2",
+      "command": "powershell.exe -NoProfile -WindowStyle Hidden -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoA",
+      "target": "powershell.exe",
+      "exists": null,
+      "signature": null,
+      "extra": {}
+    },
+    {
+      "type": "startup",
+      "key": "C:\\Users\\labuser\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\report.lnk",
+      "name": "report.lnk",
+      "command": "\"C:\\Windows\\System32\\wscript.exe\" C:\\Users\\Public\\report.vbs",
+      "target": "C:\\Windows\\System32\\wscript.exe",
+      "exists": true,
+      "signature": "Valid",
+      "extra": {
+        "scope": "user"
+      }
+    },
+    {
+      "type": "task",
+      "key": "\\DriverCheck#0",
+      "name": "DriverCheck",
+      "command": "\"C:\\Windows\\Temp\\chk.exe\" /s",
+      "target": "C:\\Windows\\Temp\\chk.exe",
+      "exists": false,
+      "signature": null,
+      "extra": {
+        "state": "Ready",
+        "runAs": "SYSTEM",
+        "runLevel": "Highest"
+      }
+    },
+    {
+      "type": "service",
+      "key": "Fax2",
+      "name": "Fax2",
+      "command": "\"C:\\Program Files\\Common Files\\fax2\\fax2svc.exe\"",
+      "target": "C:\\Program Files\\Common Files\\fax2\\fax2svc.exe",
+      "exists": true,
+      "signature": "Valid",
+      "extra": {
+        "start": "manual",
+        "account": "NT AUTHORITY\\LocalService"
+      }
+    }
+  ]
+}

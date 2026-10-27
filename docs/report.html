@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>autorun-diff report</title>
+<style>
+body{font-family:system-ui,sans-serif;margin:1em 2em;max-width:60em}
+table{border-collapse:collapse;margin:.5em 0;width:100%}
+th,td{border:1px solid #bbb;padding:2px 6px;text-align:left;vertical-align:top;word-break:break-all}
+.card{border-top:1px solid #bbb;padding:.5em 0}
+.type,.key,.meta{color:#555;font-size:small}
+code{display:block;margin:.3em 0;white-space:pre-wrap;word-break:break-all}
+.hints{margin:.5em 0 0}
+.hints:before{content:"Worth a look (hints only, not verdicts):";display:block;margin-left:-1.5em}
+.flagged .name{color:#a40000}
+</style></head><body>
+<h1>autorun-diff report</h1>
+<p>old: LAB-VM01, 2025-03-02T09:14:07Z, 12 entries<br>new: LAB-VM01, 2025-03-09T18:41:52Z, 16 entries</p>
+<p>5 added, 1 removed, 2 changed, 9 unchanged, 5 with hints</p>
+<section class="added"><h2>Added <span class="count">5</span></h2><article class="card flagged"><div class="name">WinSvcHelper <span class="type">Run key</span></div>
+<div class="key">HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\WinSvcHelper</div>
+<code>&quot;C:\Users\labuser\AppData\Roaming\WinSvc\helper.exe&quot;</code>
+<div class="meta">signature: NotSigned</div><ul class="hints"><li>points into a per-user AppData folder</li><li>target is not signed</li></ul></article><article class="card flagged"><div class="name">Updater2 <span class="type">Run key</span></div>
+<div class="key">HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\Updater2</div>
+<code>powershell.exe -NoProfile -WindowStyle Hidden -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoA</code>
+<ul class="hints"><li>PowerShell with an encoded command</li></ul></article><article class="card"><div class="name">Fax2 <span class="type">Service</span></div>
+<div class="key">Fax2</div>
+<code>&quot;C:\Program Files\Common Files\fax2\fax2svc.exe&quot;</code>
+<div class="meta">signature: Valid &middot; start: manual &middot; account: NT AUTHORITY\LocalService</div></article><article class="card flagged"><div class="name">report.lnk <span class="type">Startup folder</span></div>
+<div class="key">C:\Users\labuser\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\report.lnk</div>
+<code>&quot;C:\Windows\System32\wscript.exe&quot; C:\Users\Public\report.vbs</code>
+<div class="meta">signature: Valid &middot; scope: user</div><ul class="hints"><li>points into C:\Users\Public</li><li>launched through a script host or a common living-off-the-land binary</li></ul></article><article class="card flagged"><div class="name">DriverCheck <span class="type">Scheduled task</span></div>
+<div class="key">\DriverCheck#0</div>
+<code>&quot;C:\Windows\Temp\chk.exe&quot; /s</code>
+<div class="meta">target missing &middot; state: Ready &middot; runAs: SYSTEM &middot; runLevel: Highest</div><ul class="hints"><li>points into the Windows temp folder</li><li>target file was not found on disk</li></ul></article></section><section class="changed"><h2>Changed <span class="count">2</span></h2><article class="card flagged"><div class="name">ContosoAgent <span class="type">Service</span></div>
+<div class="key">ContosoAgent</div>
+<code>&quot;C:\ProgramData\Contoso\agent.exe&quot; -service</code>
+<div class="meta">signature: NotSigned &middot; start: auto &middot; account: LocalSystem</div><table><tr><th>field</th><th>before</th><th>after</th></tr><tr><td>command</td><td>&quot;C:\Program Files\Contoso\agent.exe&quot; -service</td><td>&quot;C:\ProgramData\Contoso\agent.exe&quot; -service</td></tr><tr><td>target</td><td>C:\Program Files\Contoso\agent.exe</td><td>C:\ProgramData\Contoso\agent.exe</td></tr><tr><td>signature</td><td>Valid</td><td>NotSigned</td></tr></table><ul class="hints"><li>points into ProgramData, which is writable by ordinary users in many setups</li><li>target is not signed</li><li>target path differs from the earlier snapshot</li><li>was validly signed in the earlier snapshot</li></ul></article><article class="card"><div class="name">ContosoSync <span class="type">Scheduled task</span></div>
+<div class="key">\ContosoSync#0</div>
+<code>&quot;C:\Program Files\Contoso\sync.exe&quot; --hourly</code>
+<div class="meta">signature: Valid &middot; state: Disabled &middot; runAs: SYSTEM &middot; runLevel: Highest</div><table><tr><th>field</th><th>before</th><th>after</th></tr><tr><td>extra.state</td><td>Ready</td><td>Disabled</td></tr></table></article></section><section class="removed"><h2>Removed <span class="count">1</span></h2><article class="card"><div class="name">OldUpdater <span class="type">Run key</span></div>
+<div class="key">HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\OldUpdater</div>
+<code>&quot;C:\Program Files\Contoso\updater.exe&quot; /silent</code>
+<div class="meta">signature: Valid</div></article></section>
+</body></html>
